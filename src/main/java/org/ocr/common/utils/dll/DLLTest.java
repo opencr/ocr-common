@@ -2,24 +2,11 @@ package org.ocr.common.utils.dll;
 
 import org.ocr.common.utils.ConvertUtil;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 
 public class DLLTest {
     public static void main(String[] args) throws Exception {
-        ProcessBuilder pb = new ProcessBuilder("dumpbin", "/EXPORTS", "D:\\Program Files\\oeds-jdk\\bin\\SecModule_x64.dll");
-        Process p = pb.start();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
-        }
-        p.waitFor();
-
-        //testSecModule64();
+        testSecModule64();
     }
 
     public static void testSecModule64() {
@@ -57,7 +44,8 @@ public class DLLTest {
         System.out.println("call CheckExamPass,retturn value:" + ConvertUtil.str(bb4, "GBK").trim());
         //7
         ByteBuffer bb5 = ByteBuffer.allocate(100);
-        lib.GetJSJSN(bb5);
+        String strSN = "123456789";
+        lib.GetJSJSN(strSN);
         System.out.println("call GetJSJSN,retturn value:" + ConvertUtil.str(bb5, "GBK").trim());
     }
 

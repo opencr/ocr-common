@@ -77,7 +77,7 @@ public interface SecModule64 extends Library {
      * @param strSN 计算机序号
      * @return 0:成功   其它-失败
      */
-    int GetJSJSN(ByteBuffer strSN);
+    int GetJSJSN(String strSN);
 
     /**
      * @param FileName1   主路径
